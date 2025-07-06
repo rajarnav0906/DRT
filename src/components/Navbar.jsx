@@ -17,7 +17,7 @@ const Navbar = () => {
     ['Contact Us', '/contact'],
   ];
 
-  // Handle scroll and body lock
+  // Handle scroll and lock
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -116,11 +116,11 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - moved outside container */}
       <div
         id="mobile-menu"
-        className={`lg:hidden fixed inset-0 z-[9999] bg-[#fffaf4] transition-all duration-300 ${
-          isMenuOpen ? 'visible opacity-100' : 'invisible opacity-0'
+        className={`lg:hidden fixed inset-0 z-[9999] bg-[#fffaf4] transition-opacity duration-300 ease-in-out ${
+          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
         {/* Close Button */}
@@ -132,7 +132,7 @@ const Navbar = () => {
           &times;
         </button>
 
-        {/* Navigation Links */}
+        {/* Links */}
         <div className="flex flex-col justify-center items-center h-full space-y-8 px-4 text-center">
           {navLinks.map(([name, path]) => (
             <Link

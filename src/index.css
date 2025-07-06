@@ -10,6 +10,28 @@
   --font-grotesk: "Space Grotesk", sans-serif;
 }
 
+/* Add this to your index.css */
+/* Add this to your index.css */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Optional: Add smooth transitions for the mobile menu */
+#mobile-menu {
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
+/* Ensure links are properly spaced on mobile */
+@media (max-width: 1023px) {
+  #mobile-menu a {
+    padding: 12px 0;
+    display: block;
+  }
+}
+
 /* ✅ CUSTOM ANIMATIONS */
 @keyframes float {
   0%   { transform: translate3d(0, 0, 0); }
