@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&family=Sora:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap');
+
+/* Add to existing CSS */
+:root {
+  --font-sora: "Sora", sans-serif;
+  --font-code: "Source Code Pro", monospace;
+  --font-grotesk: "Space Grotesk", sans-serif;
+}
