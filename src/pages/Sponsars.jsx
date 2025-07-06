@@ -5,6 +5,7 @@ import brochure from '../assets/drt_brochure.pdf';
 import solidworks from '../assets/images/sponsor1.png';
 import ansys from '../assets/images/sponsor2.png';
 import runtoto from '../assets/images/sponsor3.jpeg';
+import govoltmotors from '../assets/images/sponsor4.jpeg'
 
 const Sponsors = () => {
   return (
@@ -40,7 +41,14 @@ const Sponsors = () => {
               logo: runtoto,
               description: 'RunTOTO delivers high-performance powertrain solutions optimized for electric racing and endurance efficiency.',
               link: 'https://www.runtoto.com/'
-            }
+            },
+            { 
+  name: 'GO VOLT Motors',
+  logo: govoltmotors,
+  description: 'GO VOLT Motors pioneers cutting-edge electric vehicle technology, empowering sustainable and high-performance mobility solutions.',
+  link: 'https://www.indiamart.com/govoltmotors/profile.html?srsltid=AfmBOopwMpRs6hEO4i5vRjW0sd67HC6jc0z1MwC2ZAUb2daYSZjfYWfw'
+}
+
           ].map((sponsor, i) => (
             <div key={i} className="bg-white rounded-xl shadow-lg p-6 text-center transition hover:shadow-xl">
               <a href={sponsor.link} target="_blank" rel="noopener noreferrer">

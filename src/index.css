@@ -1,25 +1,24 @@
-@import "tailwindcss";
-
-
+/* ✅ ALL IMPORTS MUST COME FIRST */
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&family=Sora:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap');
+@import "tailwindcss";
 
-/* Add to existing CSS */
+/* ✅ CUSTOM FONT VARIABLES */
 :root {
   --font-sora: "Sora", sans-serif;
   --font-code: "Source Code Pro", monospace;
   --font-grotesk: "Space Grotesk", sans-serif;
 }
 
+/* ✅ CUSTOM ANIMATIONS */
 @keyframes float {
-    0% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -20px, 0); }
-    100% { transform: translate3d(0, 0, 0); }
-  }
-  
-  @keyframes wave {
-    0% { transform: translate3d(var(--start-x), var(--start-y), 0); }
-    50% { transform: translate3d(var(--mid-x), var(--mid-y), 0); }
-    100% { transform: translate3d(var(--end-x), var(--end-y), 0); }
-  }
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(0, -20px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
 
+@keyframes wave {
+  0%   { transform: translate3d(var(--start-x), var(--start-y), 0); }
+  50%  { transform: translate3d(var(--mid-x), var(--mid-y), 0); }
+  100% { transform: translate3d(var(--end-x), var(--end-y), 0); }
+}
