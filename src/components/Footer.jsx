@@ -40,10 +40,10 @@ const socialLinks = [
 ];
 
 const helpfulLinks = [
-  { text: 'Our Team', href: '/team' },
+  { text: 'Team', href: '/team' },
   { text: 'Achievements', href: '/achievements' },
   { text: 'Sponsors', href: '/sponsors' },
-  { text: 'Gallery', href: '/gallery' },
+  { text: 'Gallery', href: '/gallery' }
 ];
 
 const Footer = () => {
