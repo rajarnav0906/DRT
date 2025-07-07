@@ -36,7 +36,7 @@ const socialLinks = [
 ];
 
 const helpfulLinks = [
-  { text: 'Teams', href: '/team' },
+  { text: 'Our Team', href: '/team' },
   { text: 'Achievements', href: '/achievements' },
   { text: 'Sponsors', href: '/sponsors' },
   { text: 'Gallery', href: '/gallery' }
