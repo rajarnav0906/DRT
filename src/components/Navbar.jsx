@@ -94,7 +94,7 @@ const Navbar = () => {
       <div
         className={`md:hidden transition-max-height duration-300 ease-in-out overflow-hidden ${
           mobileMenuOpen ? 'max-h-screen' : 'max-h-0'
-        } bg-[#fffaf4] px-4 pb-4`}
+        } bg-[#fffaf4] px-4 pb-2`}
       >
         {navLinks.map(([name, path]) => (
           <Link
