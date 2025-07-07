@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FiMenu, FiX } from 'react-icons/fi'; // Menu and Close icons
 import logo from '../assets/images/logo_drt.png';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   const navLinks = [
@@ -17,28 +18,18 @@ const Navbar = () => {
     ['Contact Us', '/contact'],
   ];
 
-  // Handle scroll and lock
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [isMenuOpen]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close menu on route change
   useEffect(() => {
-    setIsMenuOpen(false);
+    setMobileMenuOpen(false);
   }, [location.pathname]);
 
   return (
@@ -49,12 +40,11 @@ const Navbar = () => {
           : 'bg-[#fffaf4]/90'
       } backdrop-blur-md`}
     >
-      {/* Top bar */}
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center z-50"
+          className="flex items-center"
           onClick={() => window.scrollTo(0, 0)}
         >
           <img
@@ -65,7 +55,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+        <nav className="hidden md:flex items-center space-x-1 xl:space-x-2">
           {navLinks.map(([name, path]) => (
             <Link
               key={name}
@@ -88,67 +78,37 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Hamburger */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden z-[1001] relative"
-          aria-label="Toggle Menu"
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          <div className="flex flex-col justify-center items-center w-10 h-10">
-            <span
-              className={`block w-6 h-0.5 bg-[#5a5047] transition-transform duration-300 ${
-                isMenuOpen ? 'rotate-45 translate-y-1.5' : ''
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-[#5a5047] my-1.5 transition-opacity duration-300 ${
-                isMenuOpen ? 'opacity-0' : ''
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-[#5a5047] transition-transform duration-300 ${
-                isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
-              }`}
-            />
-          </div>
-        </button>
+        {/* Mobile Hamburger Icon */}
+        <div className="md:hidden">
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            className="text-[#5a5047] hover:text-[#a5825f] transition-colors focus:outline-none"
+          >
+            {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu Overlay - moved outside container */}
+      {/* Mobile Nav Dropdown */}
       <div
-        id="mobile-menu"
-        className={`lg:hidden fixed inset-0 z-[9999] bg-[#fffaf4] transition-opacity duration-300 ease-in-out ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
+        className={`md:hidden transition-max-height duration-300 ease-in-out overflow-hidden ${
+          mobileMenuOpen ? 'max-h-screen' : 'max-h-0'
+        } bg-[#fffaf4] px-4 pb-4`}
       >
-        {/* Close Button */}
-        <button
-          onClick={() => setIsMenuOpen(false)}
-          className="absolute top-6 right-6 text-4xl text-[#5a5047] hover:text-[#a5825f] transition-colors"
-          aria-label="Close Menu"
-        >
-          &times;
-        </button>
-
-        {/* Links */}
-        <div className="flex flex-col justify-center items-center h-full space-y-8 px-4 text-center">
-          {navLinks.map(([name, path]) => (
-            <Link
-              key={name}
-              to={path}
-              onClick={() => setIsMenuOpen(false)}
-              className={`text-2xl font-medium uppercase tracking-wider transition-colors ${
-                location.pathname === path
-                  ? 'text-[#a5825f]'
-                  : 'text-[#2c2c2c] hover:text-[#a5825f]'
-              }`}
-            >
-              {name}
-            </Link>
-          ))}
-        </div>
+        {navLinks.map(([name, path]) => (
+          <Link
+            key={name}
+            to={path}
+            className={`block py-2 text-sm font-medium uppercase tracking-wider transition-colors ${
+              location.pathname === path
+                ? 'text-[#a5825f]'
+                : 'text-[#5a5047] hover:text-[#a5825f]'
+            }`}
+          >
+            {name}
+          </Link>
+        ))}
       </div>
     </header>
   );

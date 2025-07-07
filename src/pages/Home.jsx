@@ -54,7 +54,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-20 bg-[#fefcf7] text-[#2c2c2c] font-sans overflow-x-hidden">
+      <div className="pt-22 bg-[#fefcf7] text-[#2c2c2c] font-sans overflow-x-hidden">
 
         {/* Hero Section */}
         <section className="relative min-h-[90vh] flex items-center justify-center bg-[#fefcf7] overflow-hidden px-4">
