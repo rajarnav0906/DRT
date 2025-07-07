@@ -6,6 +6,7 @@ import solidworks from '../assets/images/sponsor1.png';
 import ansys from '../assets/images/sponsor2.png';
 import runtoto from '../assets/images/sponsor3.jpeg';
 import govoltmotors from '../assets/images/sponsor4.jpeg'
+import { Link } from 'react-router-dom'; 
 
 const Sponsors = () => {
   return (
@@ -71,24 +72,25 @@ const Sponsors = () => {
 
       {/* Call to Action */}
       <section className="py-16 px-6 text-center">
-        <h3 className="text-2xl font-semibold text-[#2c2c2c] mb-4">Want to partner with us?</h3>
-        <p className="text-[#5a5047] mb-6">Reach out to us to explore collaboration opportunities or download our sponsorship brochure below.</p>
-        <div className="flex flex-col md:flex-row justify-center gap-6">
-          <a
-            href="/contact"
-            className="bg-[#a5825f] hover:bg-[#8d6d4b] text-white font-medium px-6 py-3 rounded-md transition shadow"
-          >
-            Contact Us
-          </a>
-          <a
-            href={brochure}
-            download
-            className="border-2 border-[#a5825f] text-[#a5825f] hover:bg-[#a5825f] hover:text-white font-medium px-6 py-3 rounded-md transition shadow"
-          >
-            Download Brochure
-          </a>
-        </div>
-      </section>
+  <h3 className="text-2xl font-semibold text-[#2c2c2c] mb-4">Want to partner with us?</h3>
+  <p className="text-[#5a5047] mb-6">Reach out to us to explore collaboration opportunities or download our sponsorship brochure below.</p>
+  <div className="flex flex-col md:flex-row justify-center gap-6">
+    <Link
+      to="/contact"
+      className="bg-[#a5825f] hover:bg-[#8d6d4b] text-white font-medium px-6 py-3 rounded-md transition shadow"
+      onClick={() => window.scrollTo(0, 0)}
+    >
+      Contact Us
+    </Link>
+    <a
+      href={brochure}
+      download
+      className="border-2 border-[#a5825f] text-[#a5825f] hover:bg-[#a5825f] hover:text-white font-medium px-6 py-3 rounded-md transition shadow"
+    >
+      Download Brochure
+    </a>
+  </div>
+</section>
 
       <Footer />
     </div>
