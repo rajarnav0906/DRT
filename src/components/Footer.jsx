@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // ✅ Import Link
 
 const socialLinks = [
   {
@@ -24,19 +25,14 @@ const socialLinks = [
     ),
   },
   {
-  name: 'Gmail',
-  url: 'mailto:driftracingteam@nitjsr.ac.in',
-  icon: (
-    <svg
-      className="h-6 w-6"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z" />
-    </svg>
-  ),
-}
+    name: 'Gmail',
+    url: 'mailto:driftracingteam@nitjsr.ac.in',
+    icon: (
+      <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z" />
+      </svg>
+    ),
+  },
 ];
 
 const helpfulLinks = [
@@ -79,9 +75,9 @@ const Footer = () => {
             <ul className="space-y-3">
               {helpfulLinks.map((link) => (
                 <li key={link.text}>
-                  <a href={link.href} className="text-[#5a5047] hover:text-[#8d6d4b] transition">
+                  <Link to={link.href} className="text-[#5a5047] hover:text-[#8d6d4b] transition">
                     {link.text}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
