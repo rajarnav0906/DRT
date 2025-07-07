@@ -36,7 +36,7 @@ const socialLinks = [
 ];
 
 const helpfulLinks = [
-  { text: 'Team', href: '/team' },
+  { text: 'Teams', href: '/team' },
   { text: 'Achievements', href: '/achievements' },
   { text: 'Sponsors', href: '/sponsors' },
   { text: 'Gallery', href: '/gallery' }
@@ -75,7 +75,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {helpfulLinks.map((link) => (
                 <li key={link.text}>
-                  <Link to={link.href} className="text-[#5a5047] hover:text-[#8d6d4b] transition">
+                  <Link to={link.href} className="text-[#5a5047] hover:text-[#8d6d4b] transition" onClick={() => window.scrollTo(0, 0)}>
                     {link.text}
                   </Link>
                 </li>
